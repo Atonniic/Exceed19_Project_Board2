@@ -37,12 +37,11 @@ void PUT_tray_level();
 void PUT_open_door();
 void GET_auto_refill_open_door(void *param);
 
-void setup()
-{
+void setup() {
     Serial.begin(115200);
 
     pinMode(Servo_pin, OUTPUT);
-    pinMode(Laser_pin, INPUT);
+    pinMode(Laser_pin, OUTPUT);
     pinMode(LDR_pin, INPUT);
 
     refill_servo.attach(Servo_pin);
