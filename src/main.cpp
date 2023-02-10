@@ -1,9 +1,21 @@
 #include <Arduino.h>
+#include "Define.h"
+#include "Tray.h"
+#include "Door.h"
+#include "HTTP.h"
+
+int tray_level; //0 -> nothing, 1 -> refill
+bool auto_refill; //True -> automode, False -> manualmode
+bool open_door; //True -> open, False -> closed
 
 void setup() {
-  // put your setup code here, to run once:
+    Serial.begin(115200);
+    pinMode(Laser_pin, OUTPUT);
+    digitalWrite(Laser_pin, HIGH);
+    //connectWifi();
+
+    //xTaskCreatePinnedToCore(Tray, "Tray", 10000, NULL, 1, NULL, 0);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
 }
