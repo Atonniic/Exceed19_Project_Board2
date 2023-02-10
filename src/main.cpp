@@ -18,8 +18,8 @@
 
 const int room_id = 0;
 
-const char *ssid = "Pun-iPhone";
-const char *password = "spiderman";
+const char *ssid = "";
+const char *password = "";
 
 const String baseUrl = "/";
 
