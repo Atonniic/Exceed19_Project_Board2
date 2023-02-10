@@ -4,7 +4,7 @@
 #include "Door.h"
 #include "HTTP.h"
 
-int tray_level; //0 -> nothing, 1 -> refill
+bool tray_level; //0 -> nothing, 1 -> refill
 bool auto_refill; //True -> automode, False -> manualmode
 bool open_door; //True -> open, False -> closed
 
