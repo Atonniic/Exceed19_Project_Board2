@@ -21,7 +21,7 @@ const int room_id = 0;
 const char *ssid = "";
 const char *password = "";
 
-const String baseUrl = "/";
+const String baseUrl = "https://ecourse.cpe.ku.ac.th/exceed12/";
 
 bool tray_level = false; // true -> refill needed, false -> refill not needed
 bool auto_refill = true;
