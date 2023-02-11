@@ -80,7 +80,7 @@ void Tray(void *param) {
                 Refill();
         }
         last = tray_level;
-        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
 
@@ -99,7 +99,7 @@ void watch_manual_refill(void *param) {
             open_door = false;
             PUT_open_door();
         }
-        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
 
@@ -144,6 +144,6 @@ void GET_auto_refill_open_door(void *param) {
 	    } else {
 	    	Serial.println("GET_auto_refill_open_door ERROR");
         }
-        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
