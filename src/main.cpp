@@ -75,7 +75,7 @@ void Tray(void *param) {
         tray_level = analogRead(LDR_pin) >= LDR_threshold;
         if (last != tray_level) {
             PUT_tray_level();
-            if (auto_refill)
+            if (auto_refill && tray_level)
                 Refill();
         }
         last = tray_level;
