@@ -14,7 +14,7 @@
 
 #define refill_interval_width 2000
 
-#define LDR_threshold 2500
+#define LDR_threshold 3200
 
 const int room_id = 0;
 
