@@ -103,11 +103,11 @@ void watch_manual_refill(void *param) {
 }
 
 void PUT_tray_level() {
-    const String url = baseUrl + String("tray_level/") + String(room_id) + String("/") + String(tray_level);
+    const String url = baseUrl + String("update/tray_level/") + String(room_id) + String("/") + String(tray_level);
     HTTPClient http;
     http.begin(url);
     int httpCode = http.PUT("");
-    if (httpCode > 200 && httpCode <300) {
+    if (httpCode >= 200 && httpCode <300) {
         Serial.println("PUT_tray_level OK");
     } else {
         Serial.println("PUT_tray_level ERROR");
@@ -115,11 +115,11 @@ void PUT_tray_level() {
 }
 
 void PUT_open_door() {
-    const String url = baseUrl + String("open_door/") + String(room_id) + String("/") + String(open_door);
+    const String url = baseUrl + String("update/open_door/") + String(room_id) + String("/") + String(open_door);
     HTTPClient http;
     http.begin(url);
     int httpCode = http.PUT("");
-    if (httpCode > 200 && httpCode <300) {
+    if (httpCode >= 200 && httpCode <300) {
         Serial.println("PUT_open_door OK");
     } else {
         Serial.println("PUT_open_door ERROR");
