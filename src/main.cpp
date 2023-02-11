@@ -45,6 +45,9 @@ void setup() {
     pinMode(LDR_pin, INPUT);
 
     refill_servo.attach(Servo_pin);
+    refill_servo.write(Servo_min);
+
+    digitalWrite(Laser_pin, HIGH);
 
     connectWifi();
 
@@ -67,8 +70,6 @@ void connectWifi() {
 }
 
 void Tray(void *param) {
-    refill_servo.write(Servo_min);
-    digitalWrite(Laser_pin, HIGH);
     PUT_tray_level();
     bool last = tray_level;
     while (1) {
