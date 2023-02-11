@@ -18,8 +18,8 @@
 
 const int room_id = 0;
 
-const char *ssid = "";
-const char *password = "";
+const char *ssid = "Pun-iPhone";
+const char *password = "spiderman";
 
 const String baseUrl = "https://ecourse.cpe.ku.ac.th/exceed12/";
 
@@ -70,7 +70,6 @@ void connectWifi() {
 }
 
 void Tray(void *param) {
-    PUT_tray_level();
     bool last = tray_level;
     while (1) {
         tray_level = analogRead(LDR_pin) >= LDR_threshold;
