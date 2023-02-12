@@ -76,7 +76,7 @@ void Tray(void *param) {
         if (last != tray_level)
             PUT_tray_level();
         last = tray_level;
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
     }
 }
 
@@ -134,6 +134,6 @@ void GET_auto_refill_open_door(void *param) {
 	    } else {
 	    	Serial.println("GET_auto_refill_open_door ERROR");
         }
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
     }
 }
