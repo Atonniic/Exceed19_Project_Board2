@@ -32,7 +32,6 @@ Servo refill_servo;
 void connectWifi();
 void Tray(void *param);
 void Refill();
-void watch_manual_refill(void *param);
 void PUT_tray_level();
 void PUT_open_door();
 void GET_auto_refill_open_door(void *param);
@@ -52,7 +51,6 @@ void setup() {
     connectWifi();
 
     xTaskCreatePinnedToCore(Tray, "Tray", 10000, NULL, 1, NULL, 0);
-    xTaskCreatePinnedToCore(watch_manual_refill, "watch_manual_refill", 10000, NULL, 1, NULL, 0);
     xTaskCreatePinnedToCore(GET_auto_refill_open_door, "GET_auto_refill_open_door", 10000, NULL, 1, NULL, 1);
 }
 
@@ -88,17 +86,6 @@ void Refill() {
     while (millis() - start < refill_interval_width) {
     }
     refill_servo.write(Servo_min);
-}
-
-void watch_manual_refill(void *param) {
-    while (1) {
-        if (open_door) {
-            Refill();
-            open_door = false;
-            PUT_open_door();
-        }
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
 }
 
 void PUT_tray_level() {
@@ -139,6 +126,11 @@ void GET_auto_refill_open_door(void *param) {
 	    	deserializeJson(doc, payload);
 	    	auto_refill = doc["auto_refill"];
             open_door = doc["open_door"];
+            if (open_door) {
+                Refill();
+                open_door = false;
+                PUT_open_door();
+            }
 	    } else {
 	    	Serial.println("GET_auto_refill_open_door ERROR");
         }
