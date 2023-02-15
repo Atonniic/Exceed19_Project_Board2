@@ -1,3 +1,4 @@
+# Hardware
 - Tray
 - Servo
-- HTTP
+- HTTP (wifi)
